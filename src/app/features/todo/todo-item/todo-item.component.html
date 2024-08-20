@@ -1,0 +1,13 @@
+<label
+  for="todo-{{ todo.id }}"
+  class="block p-3 border has-[:checked]:opacity-40"
+>
+  <input
+    type="checkbox"
+    [checked]="todo.completed"
+    (change)="onTodoToggle(todo.id, todoCompleteCheckbox.checked)"
+    id="todo-{{ todo.id }}"
+    #todoCompleteCheckbox
+  />
+  {{ todo.title }}
+</label>
