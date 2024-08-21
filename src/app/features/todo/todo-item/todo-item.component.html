@@ -5,7 +5,7 @@
   <input
     type="checkbox"
     [checked]="todo.completed"
-    (change)="onTodoToggle(todo.id, todoCompleteCheckbox.checked)"
+    (change)="toggleTodo(todo.id, todoCompleteCheckbox.checked)"
     id="todo-{{ todo.id }}"
     #todoCompleteCheckbox
   />

@@ -19,7 +19,7 @@ export class TodoComponent implements OnInit {
     this.todos = this.todoService.getTodos();
   }
 
-  addTodo() {
+  addTodo = () => {
     const todo: Todo = {
       id: this.todos.length + 1,
       date: new Date().toISOString(),
@@ -31,17 +31,17 @@ export class TodoComponent implements OnInit {
     this.todos = this.todoService.getTodos();
 
     this.todoTitleInput.nativeElement.value = '';
-  }
+  };
 
-  removeTodo(id: number) {
+  removeTodo = (id: number) => {
     this.todoService.remove(id);
 
     this.todos = this.todoService.getTodos();
     this.trash = this.todoService.getTrash();
-  }
+  };
 
-  toggleCompleted(id: number, completed: boolean) {
+  toggleCompleted = (id: number, completed: boolean) => {
     this.todoService.toggleCompleted(id, completed);
     this.todos = this.todoService.getTodos();
-  }
+  };
 }

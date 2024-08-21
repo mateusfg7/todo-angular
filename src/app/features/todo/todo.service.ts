@@ -24,9 +24,26 @@ export class TodoService {
     },
   ];
   private trash: Todo[] = [];
+  private localStorageKey = 'todos';
+
+  constructor() {
+    this.getFromLocalStorage();
+  }
+
+  private saveToLocalStorage() {
+    localStorage.setItem(this.localStorageKey, JSON.stringify(this.todos));
+  }
+  private getFromLocalStorage() {
+    const localStorageData = localStorage.getItem(this.localStorageKey);
+
+    if (!localStorageData) return;
+
+    this.todos = JSON.parse(localStorageData);
+  }
 
   add(todo: Todo) {
     this.todos.push(todo);
+    this.saveToLocalStorage();
   }
 
   remove(id: number) {
@@ -39,6 +56,7 @@ export class TodoService {
     this.trash.push(todo);
 
     this.todos = this.todos.filter((todo) => todo.id !== id);
+    this.saveToLocalStorage();
   }
 
   toggleCompleted(id: number, completed: boolean) {
@@ -49,6 +67,8 @@ export class TodoService {
 
       return todo;
     });
+
+    this.saveToLocalStorage();
   }
 
   getTodos() {
@@ -67,6 +87,7 @@ export class TodoService {
     }
 
     this.todos.push(todo);
+    this.saveToLocalStorage();
 
     this.trash = this.trash.filter((todo) => todo.id !== id);
   }

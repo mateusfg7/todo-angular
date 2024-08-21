@@ -1,15 +1,15 @@
-<div class="m-auto border max-w-md space-y-5">
-  <h1 class="text-center text-xl drop-shadow-xl">Todo App</h1>
+<div class="max-w-md m-auto space-y-5 border">
+  <h1 class="text-xl text-center drop-shadow-xl">Todo App</h1>
 
-  <div class="gap-3 flex">
-    <input #todoTitleInput type="text" class="border p-2 flex-1" />
+  <div class="flex gap-3">
+    <input #todoTitleInput type="text" class="flex-1 p-2 border" />
     <button
       (click)="addTodo()"
-      class="border p-2 hover:bg-black hover:text-white"
+      class="p-2 border hover:bg-black hover:text-white"
     >
       Add Todo
     </button>
   </div>
 
-  <app-todo-list [todos]="todos" [onTodoToggle]="toggleCompleted" />
+  <app-todo-list [todos]="todos" [toggleCompleted]="toggleCompleted" />
 </div>
