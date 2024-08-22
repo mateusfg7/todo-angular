@@ -7,8 +7,8 @@ import { TodoService } from './todo.service';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 
 @NgModule({
-  imports: [TodoListComponent, TodoItemComponent, CommonModule],
-  declarations: [TodoComponent],
+  imports: [CommonModule],
+  declarations: [TodoComponent, TodoListComponent, TodoItemComponent],
   providers: [TodoService],
   exports: [TodoComponent],
 })

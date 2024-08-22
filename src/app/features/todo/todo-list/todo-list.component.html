@@ -4,7 +4,11 @@
   } @else {
   <ul class="space-y-2">
     <li *ngFor="let todo of todos.slice().reverse()">
-      <app-todo-item [todo]="todo" [toggleTodo]="toggleCompleted" />
+      <app-todo-item
+        [todo]="todo"
+        [toggleTodo]="toggleCompleted"
+        [removeTodo]="removeTodo"
+      />
     </li>
   </ul>
   }

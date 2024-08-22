@@ -1,13 +1,23 @@
-<label
-  for="todo-{{ todo.id }}"
-  class="block p-3 border has-[:checked]:opacity-40"
->
-  <input
-    type="checkbox"
-    [checked]="todo.completed"
-    (change)="toggleTodo(todo.id, todoCompleteCheckbox.checked)"
-    id="todo-{{ todo.id }}"
-    #todoCompleteCheckbox
-  />
-  {{ todo.title }}
-</label>
+<div class="flex items-center border">
+  <label
+    for="todo-{{ todo.id }}"
+    class="flex-1 p-3 cursor-pointer has-[:checked]:line-through"
+  >
+    <input
+      type="checkbox"
+      [checked]="todo.completed"
+      (change)="toggleTodo(todo.id, todoCompleteCheckbox.checked)"
+      id="todo-{{ todo.id }}"
+      #todoCompleteCheckbox
+    />
+    <span class="">
+      {{ todo.title }}
+    </span>
+  </label>
+  <button
+    class="p-2 px-1 text-red-700 hover:bg-red-100/50 h-fit w-fit"
+    (click)="removeTodo(todo.id)"
+  >
+    Delete
+  </button>
+</div>

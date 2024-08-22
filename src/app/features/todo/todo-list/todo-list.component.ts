@@ -1,4 +1,3 @@
-import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 
 import { Todo } from '../models/todo.model';
@@ -10,4 +9,5 @@ import { Todo } from '../models/todo.model';
 export class TodoListComponent {
   @Input() todos!: Todo[];
   @Input() toggleCompleted!: (id: number, completed: boolean) => void;
+  @Input() removeTodo!: (id: number) => void;
 }

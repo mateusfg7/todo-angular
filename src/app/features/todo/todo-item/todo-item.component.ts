@@ -9,4 +9,5 @@ import { Todo } from '../models/todo.model';
 export class TodoItemComponent {
   @Input() todo!: Todo;
   @Input() toggleTodo!: (id: number, completed: boolean) => void;
+  @Input() removeTodo!: (id: number) => void;
 }
