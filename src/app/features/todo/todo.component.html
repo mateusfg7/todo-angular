@@ -1,14 +1,14 @@
-<div class="max-w-md m-auto space-y-5 border">
-  <h1 class="text-xl text-center drop-shadow-xl">Todo App</h1>
+<div class="flex flex-col max-w-md gap-5 m-auto">
+  <h3 class="text-center">Todo App</h3>
 
   <div class="flex gap-3">
-    <input #todoTitleInput type="text" class="flex-1 p-2 border" />
-    <button
-      (click)="addTodo()"
-      class="p-2 border hover:bg-black hover:text-white"
-    >
-      Add Todo
-    </button>
+    <input
+      matNativeControl
+      #todoTitleInput
+      type="text"
+      class="flex-1 px-5 border rounded-full border-rose-700 bg-rose-700/5 text-rose-900"
+    />
+    <button mat-flat-button (click)="addTodo()">Add Todo</button>
   </div>
 
   <app-todo-list

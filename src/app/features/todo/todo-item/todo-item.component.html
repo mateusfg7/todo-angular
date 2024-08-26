@@ -1,23 +1,19 @@
-<div class="flex items-center border">
-  <label
-    for="todo-{{ todo.id }}"
-    class="flex-1 p-3 cursor-pointer has-[:checked]:line-through"
+<div
+  class="flex items-center justify-between p-2 border rounded-full has-[:checked]:border-red-600 has-[:checked]:bg-red-600/5"
+>
+  <mat-checkbox
+    [checked]="todo.completed"
+    (change)="toggleTodo(todo.id, todoCompleteCheckbox.checked)"
+    #todoCompleteCheckbox
   >
-    <input
-      type="checkbox"
-      [checked]="todo.completed"
-      (change)="toggleTodo(todo.id, todoCompleteCheckbox.checked)"
-      id="todo-{{ todo.id }}"
-      #todoCompleteCheckbox
-    />
-    <span class="">
-      {{ todo.title }}
-    </span>
-  </label>
+    {{ todo.title }}
+  </mat-checkbox>
+
   <button
-    class="p-2 px-1 text-red-700 hover:bg-red-100/50 h-fit w-fit"
+    mat-icon-button
+    aria-label="Delete todo"
     (click)="removeTodo(todo.id)"
   >
-    Delete
+    <mat-icon>delete</mat-icon>
   </button>
 </div>
